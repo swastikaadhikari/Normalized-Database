@@ -1,0 +1,211 @@
+
+--@F:\CSY1026\scripts\constraints_16.txt; 
+
+
+--ADDING A PRIMARY KEY
+
+--to set NOT NULL as PRIMARY KEY of locations
+ALTER TABLE locations
+ADD CONSTRAINT pk_locations
+PRIMARY KEY(location_id);
+
+--to set NOT NULL as PRIMARY KEY of teams
+ALTER TABLE teams
+ADD CONSTRAINT pk_teams
+PRIMARY KEY(team_number);
+
+--to set NOT NULL as PRIMARY KEY of pitches
+ALTER TABLE pitches
+ADD CONSTRAINT pk_pitches
+PRIMARY KEY(pitch_id);
+
+--to set NOT NULL as PRIMARY KEY of staff
+ALTER TABLE staff
+ADD CONSTRAINT pk_staff
+PRIMARY KEY(staff_id);
+
+--to set NOT NULL as PRIMARY KEY of customers
+ALTER TABLE customers
+ADD CONSTRAINT pk_customers
+PRIMARY KEY(customer_id);
+
+--to set NOT NULL as PRIMARY KEY of campers
+ALTER TABLE campers
+ADD CONSTRAINT pk_campers
+PRIMARY KEY(camper_id);
+
+--to set NOT NULL as PRIMARY KEY of extras
+ALTER TABLE extras
+ADD CONSTRAINT pk_extras
+PRIMARY KEY(extra_id);
+
+--to set NOT NULL as PRIMARY KEY of bookings
+ALTER TABLE bookings
+ADD CONSTRAINT pk_bookings
+PRIMARY KEY(booking_id);
+
+--to set NOT NULL as PRIMARY KEY of confirmations
+ALTER TABLE confirmations
+ADD CONSTRAINT pk_confirmations
+PRIMARY KEY(confirmation_id);
+
+--to set NOT NULL as PRIMARY KEY of booking_details
+ALTER TABLE booking_details
+ADD CONSTRAINT pk_booking_details
+PRIMARY KEY(booking_extra_id);
+
+--to set NOT NULL as PRIMARY KEY of payments
+ALTER TABLE payments
+ADD CONSTRAINT pk_payments
+PRIMARY KEY(payment_id);
+
+--to set NOT NULL as PRIMARY KEY of receipts
+ALTER TABLE receipts
+ADD CONSTRAINT pk_receipts
+PRIMARY KEY(receipt_id);
+
+
+--ADDING A FOREIGN KEY
+
+--to set as FOREIGN key to pitches
+
+ALTER TABLE pitches
+ADD CONSTRAINT fk_p_locations
+FOREIGN KEY(location_id)
+REFERENCES locations(location_id);
+
+--to set as FOREIGN KEY of staff
+ALTER TABLE staff
+ADD CONSTRAINT fk_s_teams
+FOREIGN KEY(team_number)
+REFERENCES teams(team_number);
+
+
+--to set as FOREIGN KEY of bookings
+ALTER TABLE bookings
+ADD CONSTRAINT fk_b_customers
+FOREIGN KEY(customer_id)
+REFERENCES customers(customer_id);
+
+ALTER TABLE bookings
+ADD CONSTRAINT fk_b_staff
+FOREIGN KEY(staff_id)
+REFERENCES staff(staff_id);
+
+--to set as FOREIGN KEY of confirmations
+ALTER TABLE confirmations
+ADD CONSTRAINT fk_c_bookings
+FOREIGN KEY (booking_id)
+REFERENCES bookings(booking_id);
+
+
+--to set as FOREIGN KEY of booking_details
+ALTER TABLE booking_details
+ADD CONSTRAINT fk_b_bookings
+FOREIGN KEY(booking_id)
+REFERENCES bookings(booking_id);
+
+ALTER TABLE booking_details
+ADD CONSTRAINT fk_b_campers
+FOREIGN KEY(camper_id)
+REFERENCES campers(camper_id);
+
+ALTER TABLE booking_details
+ADD CONSTRAINT fk_b_extras
+FOREIGN KEY(extra_id)
+REFERENCES extras(extra_id);
+
+ALTER TABLE booking_details
+ADD CONSTRAINT fk_b_pitches
+FOREIGN KEY(pitch_id)
+REFERENCES pitches(pitch_id);
+
+--to set as FOREIGN KEY of payments
+ALTER TABLE payments
+ADD CONSTRAINT fk_p_customers
+FOREIGN KEY(customer_id)
+REFERENCES customers(customer_id);
+
+ALTER TABLE payments
+ADD CONSTRAINT fk_p_bookings
+FOREIGN KEY(booking_id)
+REFERENCES bookings(booking_id);
+
+--to set as FOREIGN KEY of receipts
+ALTER TABLE receipts
+ADD CONSTRAINT fk_r_payments
+FOREIGN KEY(payment_id)
+REFERENCES payments(payment_id);
+
+--ADDING A UNIQUE CONSTRAINT
+
+ALTER TABLE staff
+ADD CONSTRAINT uk_online_mail
+UNIQUE(online_mail);
+
+ALTER TABLE customers
+ADD CONSTRAINT uk_email
+UNIQUE(email);
+
+
+--ADDING A CHECK CONSTRAINT
+
+ALTER TABLE teams
+ADD CONSTRAINT ck_team_name
+CHECK(team_name = UPPER(team_name));
+
+ALTER TABLE pitches
+ADD CONSTRAINT ck_pitch_name
+CHECK(pitch_name = UPPER(pitch_name));
+
+ALTER TABLE staff
+ADD CONSTRAINT ck_forename
+CHECK(forename = UPPER(forename));
+
+ALTER TABLE staff
+ADD CONSTRAINT ck_surname
+CHECK(surname = UPPER(surname));
+
+ALTER TABLE staff
+ADD CONSTRAINT ck_gender
+CHECK(gender IN ('M','F')); 
+
+ALTER TABLE customers
+ADD CONSTRAINT ck_first_name
+CHECK(first_name = UPPER(first_name));
+	
+ALTER TABLE customers
+ADD CONSTRAINT ck_last_name
+CHECK(last_name = UPPER(last_name));
+	
+ALTER TABLE customers
+ADD CONSTRAINT ck_address
+CHECK(address = UPPER(address));
+
+ALTER TABLE customers
+ADD CONSTRAINT ck_sex
+CHECK(sex IN ('M','F'));					  
+	
+ALTER TABLE campers
+ADD CONSTRAINT ck_camper_fname
+CHECK(camper_fname = UPPER(camper_fname));
+	
+ALTER TABLE campers
+ADD CONSTRAINT ck_camper_lname
+CHECK(camper_lname = UPPER(camper_lname));
+
+ALTER TABLE campers
+ADD CONSTRAINT ck_camper_gender
+CHECK(camper_gender IN ('M','F'));							
+	
+ALTER TABLE extras
+ADD CONSTRAINT ck_item_name
+CHECK(item_name = UPPER(item_name));
+	
+ALTER TABLE payments
+ADD CONSTRAINT ck_payment_mode
+CHECK (payment_mode IN ('CASH','CHEQUE','CREDIT_CARD'));
+	
+ALTER TABLE receipts
+ADD CONSTRAINT ck_cashier_name
+CHECK(cashier_name = UPPER(cashier_name));

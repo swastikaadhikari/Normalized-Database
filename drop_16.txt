@@ -1,0 +1,115 @@
+--@F:\CSY1026\scripts\drop_16.txt;
+
+--dropping foreign keys
+
+
+ALTER TABLE pitches
+DROP CONSTRAINT fk_p_locations;
+
+ALTER TABLE staff
+DROP CONSTRAINT fk_s_teams;
+
+ALTER TABLE bookings
+DROP CONSTRAINT fk_b_customers;
+
+ALTER TABLE bookings
+DROP CONSTRAINT fk_b_staff;
+
+ALTER TABLE confirmations
+DROP CONSTRAINT fk_c_bookings;
+
+ALTER TABLE booking_details
+DROP CONSTRAINT fk_b_bookings;
+
+ALTER TABLE booking_details
+DROP CONSTRAINT fk_b_campers;
+
+ALTER TABLE booking_details
+DROP CONSTRAINT fk_b_extras;
+
+ALTER TABLE booking_details
+DROP CONSTRAINT fk_b_pitches;
+
+
+ALTER TABLE payments
+DROP CONSTRAINT fk_p_customers;
+
+ALTER TABLE payments
+DROP CONSTRAINT fk_p_bookings;
+
+ALTER TABLE receipts
+DROP CONSTRAINT fk_r_payments;
+
+
+
+
+--dropping primary keys
+
+ALTER TABLE locations
+DROP CONSTRAINTS pk_locations;
+
+ALTER TABLE teams
+DROP CONSTRAINTS pk_teams;
+
+ALTER TABLE pitches
+DROP CONSTRAINTS pk_pitches;
+
+ALTER TABLE staff
+DROP CONSTRAINTS pk_staff;
+
+ALTER TABLE customers
+DROP CONSTRAINTS pk_customers;
+
+ALTER TABLE campers
+DROP CONSTRAINTS pk_campers;
+
+ALTER TABLE extras
+DROP CONSTRAINTS pk_campers;
+
+ALTER TABLE bookings
+DROP CONSTRAINTS pk_bookings;
+
+ALTER TABLE confirmations
+DROP CONSTRAINTS pk_confirmations;
+
+ALTER TABLE booking_details
+DROP CONSTRAINTS pk_booking_details;
+
+ALTER TABLE payments
+DROP CONSTRAINTS pk_payments;
+
+ALTER TABLE receipts
+DROP CONSTRAINTS pk_receipts;
+
+
+--dropping sequence
+
+DROP SEQUENCE seq_locations;
+DROP SEQUENCE seq_teams;
+DROP SEQUENCE seq_pitches;
+DROP SEQUENCE seq_staff;
+DROP SEQUENCE seq_customers;
+DROP SEQUENCE seq_campers;
+DROP SEQUENCE seq_extras;
+DROP SEQUENCE seq_bookings;
+DROP SEQUENCE seq_confirmations;
+DROP SEQUENCE seq_booking_details;
+DROP SEQUENCE seq_payments;
+DROP SEQUENCE seq_receipts;
+
+
+--dropping table
+
+DROP TABLE locations;
+DROP TABLE teams;
+DROP TABLE pitches;
+DROP TABLE staff;
+DROP TABLE customers;
+DROP TABLE campers;
+DROP TABLE extras;
+DROP TABLE confirmations;
+DROP TABLE bookings;
+DROP TABLE payments;
+DROP TABLE booking_details;
+DROP TABLE receipts;
+PURGE RECYCLEBIN;

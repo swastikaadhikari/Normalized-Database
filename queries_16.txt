@@ -1,0 +1,43 @@
+
+--@F:\CSY1026\scripts\queries_16.txt; 
+
+SELECT * FROM confirmations;
+SELECT * FROM booking_details;
+SELECT * FROM payments;
+SELECT * FROM receipts;
+
+SELECT confirmation_id,booking_id
+FROM confirmations
+WHERE booking_id = 50;
+
+SELECT confirmation_id,booking_id
+FROM confirmations
+WHERE booking_id < 52;
+
+SELECT confirmation_id,booking_id
+FROM confirmations
+WHERE booking_id > 54;
+
+SELECT confirmation_id,booking_id
+FROM confirmations
+WHERE booking_id <> 54;
+
+SELECT booking_extra_id,booking_id,camper_id,extra_id,pitch_id
+FROM booking_details
+WHERE booking_extra_id BETWEEN 20000 and 20002;
+
+SELECT booking_id, camper_id
+FROM booking_details
+WHERE booking_id = 50 AND camper_id= 1000;
+
+SELECT b.booking_id
+FROM 
+
+SELECT location_id, pitch_id
+FROM locations JOIN pitches
+ON locations.location_id = pitches.location_id;
+
+
+SELECT payment_mode, receipt_id
+FROM payments JOIN receipts
+ON payments.payment_id = receipts.payment_id;

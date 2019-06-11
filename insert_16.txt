@@ -1,0 +1,282 @@
+--@F:\CSY1026\scripts\insert_16.txt; 
+
+
+
+--inserting values in locations
+INSERT INTO locations
+(location_id,zip_code,place,district)
+VALUES(seq_locations.NEXTVAL,44709,'GODAWARI','LALITPUR');
+
+INSERT INTO locations
+(location_id,zip_code,place,district)
+VALUES(seq_locations.NEXTVAL,44618,'MARPHA','MUSTANG');
+
+INSERT INTO locations
+(location_id,zip_code,place,district)
+VALUES(seq_locations.NEXTVAL,44800,'DHULIKHEL','KAVREPALANCHOK');
+
+INSERT INTO locations
+(location_id,zip_code,place,district)
+VALUES(seq_locations.NEXTVAL,44605,'MACHAPUCHARE','KASKI');
+
+INSERT INTO locations
+(location_id,zip_code,place,district)
+VALUES(seq_locations.NEXTVAL,44602,'DHARAN','SUNSARI');
+
+
+--inserting values in teams
+INSERT INTO teams
+(team_number,team_name)
+VALUES(100,'LEADER');
+
+INSERT INTO teams
+(team_number,team_name)
+VALUES(101,'SALES');
+
+INSERT INTO teams
+(team_number,team_name)
+VALUES(102,'ADMINISTRATION');
+
+INSERT INTO teams
+(team_number,team_name)
+VALUES(103,'WORKER');
+
+INSERT INTO teams
+(team_number,team_name)
+VALUES(104,'MEMBER');
+
+
+--inserting values in pitches
+INSERT INTO pitches
+(pitch_id,pitch_name,location_id)
+VALUES(seq_pitches.NEXTVAL,'SAND_HILLS',50);
+
+INSERT INTO pitches
+(pitch_id,pitch_name,location_id)
+VALUES(seq_pitches.NEXTVAL,'MOIST',51);
+
+INSERT INTO pitches
+(pitch_id,pitch_name,location_id)
+VALUES(seq_pitches.NEXTVAL,'HUMID',52);
+
+INSERT INTO pitches
+(pitch_id,pitch_name,location_id)
+VALUES(seq_pitches.NEXTVAL,'ROCKY',53);
+
+INSERT INTO pitches
+(pitch_id,pitch_name,location_id)
+VALUES(seq_pitches.NEXTVAL,'GRASSLAND',54);
+
+
+
+--inserting values in staff
+INSERT INTO staff
+(staff_id,forename,surname,team_number,online_mail,contact_number,gender)
+VALUES(seq_staff.NEXTVAL,'SHIVA','GURUNG',100,'cvalamagurung198@gmail.com','+977 9841897018','M');
+
+INSERT INTO staff
+(staff_id,forename,surname,team_number,online_mail,contact_number,gender)
+VALUES(seq_staff.NEXTVAL,'RAJA','MAHARJAN',101,'lastking55@gmail.com','+977 9844597018','M');
+
+INSERT INTO staff
+(staff_id,forename,surname,team_number,online_mail,contact_number,gender)
+VALUES(seq_staff.NEXTVAL,'SHRIJANA','GURUNG',102,'crizanagurung89@gmail.com','+977 9841807015','F');
+
+INSERT INTO staff
+(staff_id,forename,surname,team_number,online_mail,contact_number,gender)
+VALUES(seq_staff.NEXTVAL,'PRABHA','SUBBA',103,'prabhasubba313@gmail.com','+977 9841376378','F');
+
+INSERT INTO staff
+(staff_id,forename,surname,team_number,online_mail,contact_number,gender)
+VALUES(seq_staff.NEXTVAL,'ELBISH','RAI',104,'elbishchamlingrai909@gmail.com','+977 9841807718','M');
+
+
+
+
+
+--inserting values in customers
+INSERT INTO customers
+(customer_id,first_name,last_name,email,contact_number,address,sex)
+VALUES(seq_customers.NEXTVAL,'AMIR','BHANDARI','worsawarriors879@gmail.com','+977 9860127137','JORPATI','M');
+
+INSERT INTO customers
+(customer_id,first_name,last_name,email,contact_number,address,sex)
+VALUES(seq_customers.NEXTVAL,'SWOSTIKA','ADHIKARI','queenofpain870@gmail.com','+977 9841400238','GAUSALA','F');
+
+INSERT INTO customers
+(customer_id,first_name,last_name,email,contact_number,address,sex)
+VALUES(seq_customers.NEXTVAL,'AAYUSH','SHERPA','drowranger5316@gmail.com','+977 9827162646','BOUDHHA','M');
+
+INSERT INTO customers
+(customer_id,first_name,last_name,email,contact_number,address,sex)
+VALUES(seq_customers.NEXTVAL,'SANDESH','BINUKAR','frotnitenoob54@gmail.com','+977 9846895273','SINAMANGAL','M');
+
+INSERT INTO customers
+(customer_id,first_name,last_name,email,contact_number,address,sex)
+VALUES(seq_customers.NEXTVAL,'SUSHMITA','THAPA','windrunner67@gmail.com','+977 9841802313','BAGBAZAR','F');
+
+
+
+--inserting values in campers
+INSERT INTO campers
+(camper_id,camper_fname,camper_lname,camper_type,camper_gender)
+VALUES(seq_campers.NEXTVAL,'NABIN','BASNET','CHILD','M');
+
+INSERT INTO campers
+(camper_id,camper_fname,camper_lname,camper_type,camper_gender)
+VALUES(seq_campers.NEXTVAL,'PRASHANT','MAHARJAN','ADULT','M');
+
+INSERT INTO campers
+(camper_id,camper_fname,camper_type,camper_gender)
+VALUES(seq_campers.NEXTVAL,'MINIEY','PET','M');
+
+INSERT INTO campers
+(camper_id,camper_fname,camper_lname,camper_type,camper_gender)
+VALUES(seq_campers.NEXTVAL,'SURABHI','UPADHYAY','OLD','F');
+
+INSERT INTO campers
+(camper_id,camper_fname,camper_type,camper_gender)
+VALUES(seq_campers.NEXTVAL,'RICKY','PET','F');
+
+
+--inserting values in extras
+INSERT INTO extras
+(extra_id,item_name)
+VALUES(seq_extras.NEXTVAL,'LOGS');
+
+INSERT INTO extras
+(extra_id,item_name)
+VALUES(seq_extras.NEXTVAL,'TENTS');
+
+INSERT INTO extras
+(extra_id,item_name)
+VALUES(seq_extras.NEXTVAL,'COMPASS');
+
+INSERT INTO extras
+(extra_id,item_name)
+VALUES(seq_extras.NEXTVAL,'FIRST_AID_BOX');
+
+INSERT INTO extras
+(extra_id,item_name)
+VALUES(seq_extras.NEXTVAL,'FOOD');
+
+
+--inserting values in bookings
+INSERT INTO bookings
+(booking_id,booking_date,customer_id,staff_id)
+VALUES(seq_bookings.NEXTVAL,'15-MAY-2018',500,300);
+
+INSERT INTO bookings
+(booking_id,booking_date,customer_id,staff_id)
+VALUES(seq_bookings.NEXTVAL,'25-MAY-2018',501,301);
+
+INSERT INTO bookings
+(booking_id,booking_date,customer_id,staff_id)
+VALUES(seq_bookings.NEXTVAL,'29-MAY-2018',502,302);
+
+INSERT INTO bookings
+(booking_id,booking_date,customer_id,staff_id)
+VALUES(seq_bookings.NEXTVAL,'4-JUN-2018',503,303);
+
+INSERT INTO bookings
+(booking_id,booking_date,customer_id,staff_id)
+VALUES(seq_bookings.NEXTVAL,'10-JUN-2018',504,304);
+
+
+
+
+--inserting values in confirmations
+INSERT INTO confirmations
+(confirmation_id,booking_id)
+VALUES(seq_confirmations.NEXTVAL,50);
+
+INSERT INTO confirmations
+(confirmation_id,booking_id)
+VALUES(seq_confirmations.NEXTVAL,52);
+
+INSERT INTO confirmations
+(confirmation_id,booking_id)
+VALUES(seq_confirmations.NEXTVAL,54);
+
+INSERT INTO confirmations
+(confirmation_id,booking_id)
+VALUES(seq_confirmations.NEXTVAL,56);
+
+INSERT INTO confirmations
+(confirmation_id,booking_id)
+VALUES(seq_confirmations.NEXTVAL,58);
+
+
+
+--inserting values in booking_details
+INSERT INTO booking_details
+(booking_extra_id,booking_id,camper_id,extra_id,pitch_id)
+VALUES(20000,50,1000,2000,200);
+
+INSERT INTO booking_details
+(booking_extra_id,booking_id,camper_id,extra_id,pitch_id)
+VALUES(20001,52,1005,2001,202);
+
+INSERT INTO booking_details
+(booking_extra_id,booking_id,camper_id,extra_id,pitch_id)
+VALUES(20002,54,1010,2002,204);
+
+INSERT INTO booking_details
+(booking_extra_id,booking_id,camper_id,extra_id,pitch_id)
+VALUES(20003,56,1015,2003,206);
+
+INSERT INTO booking_details
+(booking_extra_id,booking_id,camper_id,extra_id,pitch_id)
+VALUES(20004,58,1020,2004,208);
+
+
+
+--inserting values in payments
+INSERT INTO payments
+(payment_id,customer_id,booking_id,amount_paid,payment_date,payment_mode)
+VALUES(seq_payments.NEXTVAL,500,50,10000,'15-MAY-2018','CASH');
+
+INSERT INTO payments
+(payment_id,customer_id,booking_id,amount_paid,payment_date,payment_mode)
+VALUES(seq_payments.NEXTVAL,501,52,6000,'28-MAY-2018','CHEQUE');
+
+INSERT INTO payments
+(payment_id,customer_id,booking_id,amount_paid,payment_date,payment_mode)
+VALUES(seq_payments.NEXTVAL,502,54,5000,'30-MAY-2018','CHEQUE');
+
+
+INSERT INTO payments
+(payment_id,customer_id,booking_id,amount_paid,payment_date,payment_mode)
+VALUES(seq_payments.NEXTVAL,503,56,10000,'4-JUN-2018','CREDIT_CARD');
+
+
+INSERT INTO payments
+(payment_id,customer_id,booking_id,amount_paid,payment_date,payment_mode)
+VALUES(seq_payments.NEXTVAL,504,58,7000,'10-JUN-2018','CASH');
+
+
+
+--inserting values in receipts
+INSERT INTO receipts
+(receipt_id,receipt_date,payment_id,cashier_name)
+VALUES(seq_receipts.NEXTVAL,'15-MAY-2018',1000,'NANU');
+
+
+INSERT INTO receipts
+(receipt_id,receipt_date,payment_id,cashier_name)
+VALUES(seq_receipts.NEXTVAL,'28-MAY-2018',1002,'BRYAN');
+
+INSERT INTO receipts
+(receipt_id,receipt_date,payment_id,cashier_name)
+VALUES(seq_receipts.NEXTVAL,'30-MAY-2018',1004,'SIDDHANT');
+
+
+INSERT INTO receipts
+(receipt_id,receipt_date,payment_id,cashier_name)
+VALUES(seq_receipts.NEXTVAL,'4-JUN-2018',1006,'YUKE');
+
+INSERT INTO receipts
+(receipt_id,receipt_date,payment_id,cashier_name)
+VALUES(seq_receipts.NEXTVAL,'10-JUN-2018',1008,'OSHAN');
+
+

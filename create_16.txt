@@ -1,0 +1,165 @@
+
+
+--@F:\CSY1026\scripts\create_16.txt;
+  
+  
+--CREATING TABLES
+CREATE TABLE locations(
+location_id NUMBER(5),
+zip_code NUMBER(7) NOT NULL,
+city VARCHAR2(12) DEFAULT 'NEPAL',
+district VARCHAR2(15));
+
+CREATE TABLE teams(
+team_number NUMBER(6),
+team_name VARCHAR2(20));
+
+CREATE TABLE pitches(
+pitch_id NUMBER(5),
+pitch_name VARCHAR2(25),
+location_id NUMBER(5));
+
+CREATE TABLE staff(
+staff_id NUMBER(6),
+forename VARCHAR2(20),
+surname VARCHAR2(20),
+team_number NUMBER(6),
+online_mail VARCHAR2(30),
+contact_number VARCHAR2(15),
+date_of_birth DATE,
+gender CHAR(1) DEFAULT 'M');
+
+CREATE TABLE customers(
+customer_id NUMBER(5),
+first_name VARCHAR2(20),
+last_name VARCHAR2(20),
+email VARCHAR2(30),
+birth_date DATE,
+contact_number VARCHAR2(15) NOT NULL,
+address VARCHAR2(20),
+sex CHAR(1) DEFAULT 'F');
+
+CREATE TABLE campers(
+camper_id NUMBER(4),
+camper_fname VARCHAR2(20),
+camper_lname VARCHAR2(20),
+camper_type VARCHAR2(10) NOT NULL,
+camper_gender CHAR(1) DEFAULT 'M');
+
+CREATE TABLE extras (
+extra_id NUMBER(5),
+item_name VARCHAR2(25));
+
+CREATE TABLE bookings(
+booking_id NUMBER(5),
+booking_date DATE,
+customer_id NUMBER(5),
+staff_id NUMBER(6));
+
+CREATE TABLE confirmations(
+confirmation_id NUMBER(5),
+booking_id NUMBER(5));
+
+CREATE TABLE booking_details(
+booking_extra_id NUMBER(5),
+booking_id NUMBER(5),
+camper_id NUMBER(4),
+extra_id NUMBER(5),
+pitch_id NUMBER(5));
+
+CREATE TABLE payments(
+payment_id NUMBER(5),
+customer_id NUMBER(5),
+booking_id NUMBER(5),
+amount_paid NUMBER(8,2),
+payment_date DATE,
+payment_mode VARCHAR2(10));
+
+CREATE TABLE receipts(
+receipt_id NUMBER(8),
+receipt_date DATE,
+payment_id NUMBER(5),
+cashier_name VARCHAR2(20));
+
+--CREATING SEQUENCES
+CREATE SEQUENCE seq_locations
+INCREMENT BY 1
+START WITH 50
+NOCYCLE;
+
+CREATE SEQUENCE seq_teams
+INCREMENT BY 1
+START WITH 100
+NOCYCLE;
+
+CREATE SEQUENCE seq_pitches
+INCREMENT BY 2
+START WITH 200
+NOCYCLE;
+
+CREATE SEQUENCE seq_staff
+INCREMENT BY 1
+START WITH 300
+NOCYCLE;
+
+CREATE SEQUENCE seq_customers
+INCREMENT BY 1
+START WITH 500
+NOCYCLE;
+
+CREATE SEQUENCE seq_campers
+INCREMENT BY 5
+START WITH 1000
+NOCYCLE;
+
+CREATE SEQUENCE seq_extras
+INCREMENT BY 1
+START WITH 2000
+NOCYCLE;
+
+CREATE SEQUENCE seq_bookings
+INCREMENT BY 2
+START WITH 50
+NOCYCLE;
+
+CREATE SEQUENCE seq_confirmations
+INCREMENT BY 1
+START WITH 100;
+
+CREATE SEQUENCE seq_booking_details
+INCREMENT BY 1
+START WITH 20000
+MAXVALUE 30000;
+
+CREATE SEQUENCE seq_payments
+INCREMENT BY 2
+START WITH 1000
+MAXVALUE 30000;
+
+CREATE SEQUENCE seq_receipts
+INCREMENT BY 2
+START WITH 1000
+MAXVALUE 3000;
+
+
+--modifying tables
+ALTER TABLE locations MODIFY(
+city VARCHAR2(20));
+
+ALTER TABLE teams MODIFY(
+team_name VARCHAR2(25));
+
+ALTER TABLE payments MODIFY(
+payment_mode VARCHAR2(12));
+
+--adding column
+ALTER TABLE extras ADD(
+item_weight VARCHAR2(5));
+
+
+
+
+
+
+
+
